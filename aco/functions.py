@@ -3640,7 +3640,7 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
         
         networkx.draw_networkx_edges(diGraphForPath, pos = pile_positions_dictionary, edgelist = solution_path_edges, edge_color = edge_colors, arrowsize = parameters.arrow_size, width = parameters.path_width)
 
-        plt.legend(handles = pile_color_legend_handles, loc = 'upper right')
+        plt.legend(handles = pile_color_legend_handles, loc = 'lower left')
         plt.axis(graph_axis_limits)
         plt.gca().set_aspect('equal', adjustable = 'box')
         

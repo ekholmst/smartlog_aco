@@ -5,7 +5,7 @@
 #
 # Auxiliary functions for smart_log_aco.py
 #
-# Eero Holmström, 2019
+# Eero HolmstrÃ¶m, 2019
 #
 
 
@@ -254,7 +254,7 @@ def get_harvestability_map(the_graph, pile_node_sizes, pile_positions, graph_axi
 
         #
         # Then, draw the harvestability map. Use the same color
-        # palette as Metsäkeskus uses.
+        # palette as MetsÃ¤keskus uses.
         #
         
         plt.imshow(harvestability_map, extent = (final_boundingbox_min_easting - parameters.harvestability_map_pixel_size/2.0, final_boundingbox_max_easting + parameters.harvestability_map_pixel_size/2.0, final_boundingbox_min_northing - parameters.harvestability_map_pixel_size/2.0, final_boundingbox_max_northing + parameters.harvestability_map_pixel_size/2.0), cmap = harvestability_cmap, norm = harvestability_cmap_norm)

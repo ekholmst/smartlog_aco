@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #
 # -*- coding: utf-8 -*-
 #
@@ -6,7 +7,7 @@
 # Solve the capacitated vehicle routing problem of forest forwarder
 # work using ant colony optimization.
 #
-# Eero Holmström, 2019-2020
+# Eero HolmstrÃ¶m, 2019-2020
 #
 
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #
 # A small program for investigating how the pheromone concentration
 # of the original ACO algorithm

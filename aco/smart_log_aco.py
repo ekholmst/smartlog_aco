@@ -57,7 +57,7 @@ matplotlib.use("agg")
 
 if len(sys.argv) < 3:
 
-        print("Usage: smart_log_aco.py [wood pile input data file] [forwarder position input data file]")
+        print("Usage: smart_log_aco.py [wood pile input data file] [forest machine position input data file]")
         exit(0)
 
 

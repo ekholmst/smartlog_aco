@@ -2041,7 +2041,7 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
         n_positions = forwarder_position_data.shape[0]
 
         print("")
-        print("Read in a total of %d lines of forwarder position data from file %s" % (n_positions, input_file_forwarder_position))
+        print("Read in a total of %d lines of forest machine position data from file %s" % (n_positions, input_file_forwarder_position))
 
         #
         # These will be used for axes limits in plots as well as

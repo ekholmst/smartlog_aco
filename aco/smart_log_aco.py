@@ -593,8 +593,8 @@ for subproblem in decomposition:
         # Also, get the number of unique assortments for this
         # subproblem
         #
-
-        number_of_unique_wood_types_for_this_subproblem = len(np.unique(wood_matrix[:, 0]))
+        
+        number_of_unique_wood_types_for_this_subproblem = len(np.unique(wood_matrix[subproblem[1:], 0]))
 
         print("The number of unique assortments is %d" % number_of_unique_wood_types_for_this_subproblem)
         
@@ -691,6 +691,8 @@ for subproblem in decomposition:
         #
 
         effective_number_of_unique_wood_types_for_this_subproblem = np.min([parameters.cap_on_effective_number_of_unique_wood_types, number_of_unique_wood_types_for_this_subproblem])
+
+        print("Effective number of unique wood types for this subproblem is %d" % effective_number_of_unique_wood_types_for_this_subproblem)
         
         time_of_loading_one_m3 = parameters.t_load_a * np.power(effective_number_of_unique_wood_types_for_this_subproblem, 2) + parameters.t_load_b * effective_number_of_unique_wood_types_for_this_subproblem + parameters.t_load_c
         time_of_loading_one_m3 = time_of_loading_one_m3*60.0

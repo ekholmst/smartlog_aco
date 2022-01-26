@@ -233,7 +233,6 @@ def get_harvestability_map(the_graph, pile_node_sizes, pile_positions, graph_axi
         print("Histogram of values for harvestability of 1, 2, 3, 4, 5, 6:")
         print("")
         print(hist)
-        #print(bin_edges)
         print("")
 
         #
@@ -640,34 +639,10 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                 nodes_in_edges_of_this_fragment.extend(nodes_in_edges_of_this_fragment_0)
                 nodes_in_edges_of_this_fragment.extend(nodes_in_edges_of_this_fragment_1)
                 
-                #
-                # BEGIN DEBUG
-                #
-
-                #print("")
-                #print("fragment node list:", this_fragment_node_list)
-                #print("the edge view of this fragment:", the_graph.edges(this_fragment_node_list))
-                #print("edge nodes of this fragment:", nodes_in_edges_of_this_fragment)
-                
-                #
-                # END DEBUG
-                #
-
                 i_road_strip = 0
                 
                 for this_road_strip in road_strip_node_lists:
-
-
-                        #
-                        # BEGIN DEBUG
-                        #
-                        
-                        #print("nodes of this road strip:", this_road_strip)
-                        
-                        #
-                        # END DEBUG
-                        #
-                        
+        
                         
                         #
                         # See if this fragment is connected to this road strip
@@ -675,15 +650,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
 
                         if len(set(nodes_in_edges_of_this_fragment).intersection(set(this_road_strip))) > 0:
 
-                                #
-                                # BEGIN DEBUG
-                                #
-
-                                #print("SUCCESS! Now joining fragment with this road strip.")
-                                
-                                #
-                                # END DEBUG
-                                #
                                 
                                 #
                                 # You have found a road strip that is connected to this fragment. Create
@@ -729,8 +695,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                 # the road connectivity
                                 #                
         
-                                #networkx.draw(the_graph, node_color = 'black', node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
-                                
                                 this_road_strip_graph = copy.deepcopy(the_graph)
                                 all_nodes_except_those_in_road_strip = set(list_of_all_nodes).difference(nodes_in_this_road_strip)
                                 this_road_strip_graph.remove_nodes_from(all_nodes_except_those_in_road_strip)
@@ -765,8 +729,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                 # the road connectivity
                                 #                
         
-                                #networkx.draw(the_graph, node_color = 'black', node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
-                                
                                 networkx.draw(this_joint_subgraph, node_color = 'green', alpha = 0.5, node_size = parameters.node_size_in_before_and_after_joining_plots, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
                                 
                                 plt.axis(graph_axis_limits)
@@ -794,15 +756,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         
         for this_road_strip in road_strip_node_lists:
 
-                #
-                # DEBUG
-                #
-                
-                #print("This road strip:", this_road_strip)
-
-                #
-                # END DEBUG
-                #
                 
                 if i_road_strip not in list_of_road_strips_in_subgraphs:
 
@@ -881,16 +834,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
 
                                         if this_subgraph is not other_subgraph:
 
-                                                #
-                                                # BEGIN DEBUG
-                                                #
-                                                
-                                                #print("The two graphs, see if they share nodes:", set(list(this_subgraph.nodes)), set(list(other_subgraph.nodes)))
-                                                
-                                                #
-                                                # END DEBUG
-                                                #
-
                                                 
                                                 if len(set(list(this_subgraph.nodes)).intersection(set(list(other_subgraph.nodes)))) > 0:
 
@@ -903,17 +846,7 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                                         merged_subgraph = networkx.compose(this_subgraph, subgraph_to_merge_with)
 
                                                         n_merging_operations = n_merging_operations + 1
-                                                        
-                                                        #
-                                                        # DEBUG
-                                                        #
-
-                                                        #print("SUCCESS (1)! Found subgraph B with common nodes with A.")
-                                                        
-                                                        #
-                                                        # END DEBUG
-                                                        #
-                                                        
+                                                                                                                
                                                         break
 
                                 
@@ -936,16 +869,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                         for other_subgraph in list_of_subgraphs:
 
                                                 if this_subgraph is not other_subgraph:
-
-                                                        #
-                                                        # BEGIN DEBUG
-                                                        #
-                                                        
-                                                        #print("The two graphs, see if they are connected:", set(list(this_subgraph.nodes)), set(list(other_subgraph.nodes)))
-
-                                                        #
-                                                        # END DEBUG
-                                                        #
                                                         
                                                         nodes_of_other_subgraph = list(other_subgraph.nodes)
 
@@ -969,16 +892,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                                                                                                                 
                                                                 n_merging_operations = n_merging_operations + 1
                                                                 
-                                                                #
-                                                                # DEBUG
-                                                                #
-
-                                                                #print("SUCCESS (2)! Found subgraph B directly connected to A.")
-                                                                
-                                                                #
-                                                                # END DEBUG
-                                                                #
-
                                                                 break
                                 
                                         
@@ -1044,8 +957,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                 # the road connectivity
                                 #                
         
-                                #networkx.draw(the_graph, node_color = 'black', node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
-                                
                                 networkx.draw(this_subgraph, node_color = 'red', alpha = 0.5, node_size = parameters.node_size_in_before_and_after_joining_plots, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
                                                         
                                 networkx.draw(subgraph_to_merge_with, node_color = 'blue', alpha = 0.5, node_size = parameters.node_size_in_before_and_after_joining_plots, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
@@ -1072,8 +983,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                 # the road connectivity
                                 #                
         
-                                #networkx.draw(the_graph, node_color = 'black', node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)                                
-                                
                                 networkx.draw(merged_subgraph, node_color = 'green', alpha = 0.5, node_size = parameters.node_size_in_before_and_after_joining_plots, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
                                 
                                 plt.axis(graph_axis_limits)
@@ -1465,19 +1374,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         subgraph_indeces_sorted_by_distance_from_roadside_node = np.argsort(subgraph_distances_from_roadside_node)
 
         #
-        # BEGIN DEBUG
-        #
-
-        #print("")
-        #print("Start: subgraph distances from roadside node:", subgraph_distances_from_roadside_node)
-        #print("Start: the sorted indeces:", subgraph_indeces_sorted_by_distance_from_roadside_node)
-        #print("")
-        
-        #
-        # END DEBUG
-        #
-
-        #
         # Keep track of which subgraphs you have
         # already used up for this decomposition
         #
@@ -1500,17 +1396,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                 
                 i_seed_subgraph = subgraph_indeces_sorted_by_distance_from_roadside_node[i_subgraphs_sorted_by_distance]
 
-                #
-                # BEGIN DEBUG
-                #
-
-                #print("")
-                #print("indeces_of_subgraphs_used_for_this_decomposition:", indeces_of_subgraphs_used_for_this_decomposition)
-                #print("")
-                
-                #
-                # END DEBUG
-                #
                 
                 while i_seed_subgraph in indeces_of_subgraphs_used_for_this_decomposition:
 
@@ -1521,18 +1406,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                 the_seed_subgraph = list_of_subgraphs[i_seed_subgraph]
 
                 the_seed_subgraph_nodes = list(the_seed_subgraph.nodes)
-
-                #
-                # BEGIN DEBUG
-                #
-
-                #print("")
-                #print("Seed subgraph index:", i_seed_subgraph)
-                #print("")
-                
-                #
-                # END DEBUG
-                #
                 
                 
                 #
@@ -1580,18 +1453,6 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
 
                 subgraph_indeces_sorted_by_distance_from_the_seed_subgraph = np.argsort(distances_of_other_subgraphs_from_the_seed_subgraph)
                 
-
-                #
-                # BEGIN DEBUG
-                #
-
-                #print("")
-                #print("the sorted indeces by distance from seed subgraph:", subgraph_indeces_sorted_by_distance_from_the_seed_subgraph)
-                #print("")
-                
-                #
-                # END DEBUG
-                #
                 
                 #
                 # Next, add subgraphs by increasing distance from the seed
@@ -2287,17 +2148,6 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
                 #
                 
                 new_pile_positions[i_pile, :] = this_new_pile_position
-
-                #
-                # Plot
-                #
-                #plt.figure(figsize = (parameters.figure_size_h, parameters.figure_size_v))
-                #plt.plot(road_points_for_interpolation[:, 0], road_points_for_interpolation[:, 1], 'rx', linewidth=0, markersize=10)
-                #plt.plot(spline_points[:, 0], spline_points[:, 1], 'b-', linewidth=3)
-                #plt.plot(this_pile_position[0], this_pile_position[1], 'mo', markersize=10)
-                #plt.plot(this_new_pile_position[0], this_new_pile_position[1], 'ms', markersize=10)
-                #plt.axis('equal')
-                #plt.show()
                 
 
         print("Done.")
@@ -2389,9 +2239,6 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
         # - Then, find the nearest neighbor in a narrow sector
         #   directly opposite to the first nearest neighbor
         #
-        #
-        # TODO: Parallellize this?
-        #
 
         #
         # First, add an edge from the roadside node simply to the
@@ -2415,16 +2262,6 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
 
         the_graph.add_edge(0, i_nearest_pile + 1)
 
-        #
-        # BEGIN DEBUG
-        #
-
-        #print("")
-        #print("The nearest pile to the roadside point was %d " % (i_nearest_pile + 1))
-
-        #
-        # END DEBUG
-        #
         
         #
         # Then, add the edges between the pick-up nodes
@@ -2444,17 +2281,6 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
                         continue
 
                 this_pile_position = np.array([new_pile_positions[i_pile, 0], new_pile_positions[i_pile, 1]])
-
-                #
-                # BEGIN DEBUG
-                #
-
-                #print("")
-                #print("Now handling node number %d" % (i_pile + 1))
-                
-                #
-                # END DEBUG
-                #
                 
                 
                 #
@@ -2499,16 +2325,6 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
                 #
                 
                 the_graph.add_edge(i_pile + 1, i_nn + 1)
-
-                #
-                # BEGIN DEBUG
-                #
-
-                #print("Found nearest neighbor %d" % (i_nn + 1))
-
-                #
-                # END DEBUG
-                #
                 
                 
                 #
@@ -2604,15 +2420,6 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
 
                                 the_graph.add_edge(i_pile + 1, i_second_nn + 1)
 
-                                #
-                                # BEGIN DEBUG
-                                #
-                                
-                                #print("Found second-nearest neighbor %d" % (i_second_nn + 1))
-
-                                #
-                                # END DEBUG
-                                #
                                 
         #
         # 3. Now that you've added the nodes and edges to the graph,
@@ -2695,15 +2502,7 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
                         
                 pile_marker_sizes.append(this_pile_marker_size)
 
-        
-        # DEBUG
-        #xmin = min_x_forwarder_position_data + np.random.random()*(max_x_forwarder_position_data - min_x_forwarder_position_data)
-        #xmax = xmin + 50.0
-        #ymin = min_y_forwarder_position_data + np.random.random()*(max_y_forwarder_position_data - min_y_forwarder_position_data)
-        #ymax = ymin + 50.0
-        #these_axis_lims = [xmin, xmax, ymin, ymax]
-        #
-        
+                
         # Set a reasonable default font size for all plots
         plt.rc('font', size = 15)
 
@@ -2999,19 +2798,14 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
         
         plt.figure(figsize = (parameters.figure_size_h, parameters.figure_size_v))
 
-        # DEBUG
-        #plt.axis('equal')
         plt.title('Pile positions and road network (raw data)')
         plt.xlabel('Easting (m)')        
         plt.ylabel('Northing (m)')
         plt.xlim([min_x_forwarder_position_data - parameters.margin_for_pile_and_road_plots, max_x_forwarder_position_data + parameters.margin_for_pile_and_road_plots])
         plt.ylim([min_y_forwarder_position_data - parameters.margin_for_pile_and_road_plots, max_y_forwarder_position_data + parameters.margin_for_pile_and_road_plots])
-        #plt.xlim(these_axis_lims[0:2])
-        #plt.ylim(these_axis_lims[2:4])
         plt.scatter(pile_data[:, 1], pile_data[:, 0], color = pile_marker_colors, sizes = pile_marker_sizes)
         plt.plot(forwarder_position_data[:, 2], forwarder_position_data[:, 1], 'k-', linewidth = 1)
-        # DEBUG
-        #plt.plot(unambiguous_road_points[:, 0], unambiguous_road_points[:, 1], 'rx', markersize = parameters.road_point_markersize, linewidth = 0, markeredgewidth = parameters.road_point_marker_edge_width)
+
         plt.legend(handles = pile_color_legend_handles)
         plt.gca().set_aspect('equal', adjustable = 'box')
         
@@ -3028,19 +2822,14 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
         #
 
         plt.figure(figsize = (parameters.figure_size_h, parameters.figure_size_v))
-        # DEBUG
-        #plt.axis('equal')
         plt.title('Pile positions and road network (piles projected onto road)')
         plt.xlabel('Easting (m)')
         plt.ylabel('Northing (m)')
-        #plt.xlim(these_axis_lims[0:2])
-        #plt.ylim(these_axis_lims[2:4])
         plt.xlim([min_x_forwarder_position_data - parameters.margin_for_pile_and_road_plots, max_x_forwarder_position_data + parameters.margin_for_pile_and_road_plots])
         plt.ylim([min_y_forwarder_position_data - parameters.margin_for_pile_and_road_plots, max_y_forwarder_position_data + parameters.margin_for_pile_and_road_plots])
         plt.scatter(new_pile_positions[:, 0], new_pile_positions[:, 1], color = pile_marker_colors, sizes = pile_marker_sizes)
         plt.plot(forwarder_position_data[:, 2], forwarder_position_data[:, 1], 'k-', linewidth = 1, markersize = 5)
-        # DEBUG
-        #plt.plot(unambiguous_road_points[:, 0], unambiguous_road_points[:, 1], 'rx', markersize = parameters.road_point_markersize, linewidth = 0, markeredgewidth = parameters.road_point_marker_edge_width)
+
         plt.legend(handles = pile_color_legend_handles)
         plt.gca().set_aspect('equal', adjustable = 'box')
         
@@ -3271,65 +3060,7 @@ def compute_static_cost_matrices(the_graph, list_of_nodes, harvestability_map, h
 
                 the_ground_damage_matrix[this_begin_node, this_end_node] = this_shortest_path_harvestability*this_shortest_path_length
                 the_ground_damage_matrix[this_end_node, this_begin_node] = this_shortest_path_harvestability*this_shortest_path_length
-
-                # DEBUG
-                # print("Shortest path between nodes %d and %d which has a length of %f and harvestability of %f: " % (this_begin_node, this_end_node, this_shortest_path_length, this_shortest_path_harvestability), this_shortest_path)
-                # END DEBUG
                 
-                continue
-        
-                ### BEGIN DEBUG
-
-                print("Shortest path between nodes %d and %d which has a length of %f and harvestability of %f: " % (this_begin_node, this_end_node, this_shortest_path_length, this_shortest_path_harvestability), this_shortest_path)
-
-                #
-	        # Create a dictionary for the positions of the nodes
-	        #
-                positions = {}
-        
-                for n in the_graph.nodes.items():
-                        
-                        positions[n[0]] = [n[1]['data'].x_position, n[1]['data'].y_position]
-
-
-                # Use a directed graph so that we can draw arrows
-                diGraphForPath = networkx.DiGraph()
-                diGraphForPath.add_nodes_from(the_graph)
-
-                # Get the path edges for plotting
-                this_shortest_path_edges = [(this_shortest_path[i], this_shortest_path[i+1]) for i in range (0, len(this_shortest_path) - 1)]
-                
-                #
-                # Plot
-                #
-
-                plt.figure(figsize = (parameters.figure_size_h, parameters.figure_size_v))
-                plt.rc('font', size = parameters.default_font_size)
-                plt.title('Real-life graph with shortest path between nodes %d and %d' % (this_begin_node, this_end_node))
-
-                #
-                # Draw just the nodes first. Draw the beginning and end nodes of the path at a larger scale and different color than the rest of the nodes.
-                #                
-
-                node_colors = ['g' for i_node in range(0, len(list(the_graph.nodes)))]
-                node_colors[this_begin_node] = 'b'
-                node_colors[this_end_node] = 'r'
-
-                node_sizes = [0.0 for i_node in range(0, len(list(the_graph.nodes)))]
-                node_sizes[this_begin_node] = parameters.pickup_node_scale
-                node_sizes[this_end_node] = parameters.pickup_node_scale
-                               
-                networkx.draw(diGraphForPath, node_color = node_colors, node_size = node_sizes, width = 0.0, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, with_labels = parameters.draw_graph_nodes_with_labels)
-
-                #
-                # Then draw the edges, setting a different color for each edge
-                #
-
-                colors = cm.rainbow(np.linspace(0, 1, len(this_shortest_path)))                
-                edge_colors = [colors[i_step] for i_step in range(0, len(this_shortest_path) - 1)]
-                networkx.draw_networkx_edges(diGraphForPath, pos = positions, edgelist = this_shortest_path_edges, edge_color = edge_colors, arrowsize = parameters.arrow_size)
-                                
-                ### END DEBUG
 
         
         #
@@ -3545,10 +3276,7 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
                         #
                         # Plot
                         #
-
-                        # DEBUG
-                        #fig, ax = plt.subplots(figsize = (parameters.figure_size_h, parameters.figure_size_v))
-
+                        
                         plt.figure(figsize = (parameters.figure_size_h, parameters.figure_size_v))
                         plt.rc('font', size = parameters.default_font_size)
                         plt.title('Tour number ' + str(i_tour) + ' best solution of subproblem ' + str(i_subproblem) + ' on real-life graph')
@@ -3565,8 +3293,6 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
 
                                         pile_node_colors_for_this_subproblem[node] = [0.0, 0.0, 0.0]
                         
-                        # DEBUG
-                        #networkx.draw(the_real_life_graph, node_color = pile_node_colors_for_this_subproblem, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels, ax = ax)
 
                         networkx.draw(the_real_life_graph, node_color = pile_node_colors_for_this_subproblem, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
@@ -3581,20 +3307,14 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
                                 next_node = this_tour_edges[i_edge][1]
                                 edge_colors.append(pile_node_colors[next_node])
                 
-                        # DEBUG
-                        #networkx.draw_networkx_edges(diGraphForPath, pos = pile_positions_dictionary, edgelist = this_tour_edges, edge_color = edge_colors, arrowsize = parameters.arrow_size, width = parameters.path_width, style = 'dashed', ax = ax)
 
                         networkx.draw_networkx_edges(diGraphForPath, pos = pile_positions_dictionary, edgelist = this_tour_edges, edge_color = edge_colors, arrowsize = parameters.arrow_size, width = parameters.path_width, style = 'dashed')
 
-                        # DEBUG
-                        #ax.tick_params(left = True, bottom = True, labelleft = True, labelbottom = True)
 
                         plt.legend(handles = pile_color_legend_handles, loc = 'lower left')
                         plt.axis(graph_axis_limits)
                         plt.gca().set_aspect('equal', adjustable = 'box')
 
-                        # DEBUG
-                        #plt.axis('on')
                         
                         if parameters.save_figures_to_files:
                         

@@ -120,55 +120,6 @@ t_begin = time.time()
 
 the_real_life_graph, pile_node_sizes, pile_node_colors, pile_color_legend_handles, wood_type_color_dictionary, wood_type_dictionary, graph_axis_limits, pile_positions_dictionary = functions.construct_real_life_graph_from_input_files(wood_pile_input_data_file, forwarder_position_input_data_file)
 
-#
-#the_real_life_graph_file = open("the_real_life_graph.obj", "wb")
-#pile_node_sizes_file = open("pile_node_sizes.obj", "wb")
-#pile_node_colors_file = open("pile_node_colors.obj", "wb")
-#pile_color_legend_handles_file = open("pile_color_legend_handles.obj", "wb")
-#wood_type_color_dictionary_file = open("wood_type_color_dictionary.obj", "wb")
-#wood_type_dictionary_file = open("wood_type_dictionary.obj", "wb")
-#graph_axis_limits_file = open("graph_axis_limits.obj", "wb")
-#pile_positions_dictionary_file = open("pile_positions_dictionary.obj", "wb")
-#
-#pickle.dump(the_real_life_graph, the_real_life_graph_file)
-#pickle.dump(pile_node_sizes, pile_node_sizes_file)
-#pickle.dump(pile_node_colors, pile_node_colors_file)
-#pickle.dump(pile_color_legend_handles, pile_color_legend_handles_file)
-#pickle.dump(wood_type_color_dictionary, wood_type_color_dictionary_file)
-#pickle.dump(wood_type_dictionary, wood_type_dictionary_file)
-#pickle.dump(graph_axis_limits, graph_axis_limits_file)
-#pickle.dump(pile_positions_dictionary, pile_positions_dictionary_file)
-#
-#
-#the_real_life_graph_file = open("the_real_life_graph.obj", "rb")
-#pile_node_sizes_file = open("pile_node_sizes.obj", "rb")
-#pile_node_colors_file = open("pile_node_colors.obj", "rb")
-#pile_color_legend_handles_file = open("pile_color_legend_handles.obj", "rb")
-#wood_type_color_dictionary_file = open("wood_type_color_dictionary.obj", "rb")
-#wood_type_dictionary_file = open("wood_type_dictionary.obj", "rb")
-#graph_axis_limits_file = open("graph_axis_limits.obj", "rb")
-#pile_positions_dictionary_file = open("pile_positions_dictionary.obj", "rb")
-#
-#the_real_life_graph = pickle.load(the_real_life_graph_file)
-#pile_node_sizes = pickle.load(pile_node_sizes_file)
-#pile_node_colors = pickle.load(pile_node_colors_file)
-#pile_color_legend_handles = pickle.load(pile_color_legend_handles_file)
-#wood_type_color_dictionary = pickle.load(wood_type_color_dictionary_file)
-#wood_type_dictionary = pickle.load(wood_type_dictionary_file)
-#graph_axis_limits = pickle.load(graph_axis_limits_file)
-#pile_positions_dictionary = pickle.load(pile_positions_dictionary_file)
-#
-#
-#the_real_life_graph_file.close()
-#pile_node_sizes_file.close()
-#pile_node_colors_file.close()
-#pile_color_legend_handles_file.close()
-#wood_type_color_dictionary_file.close()
-#wood_type_dictionary_file.close()
-#graph_axis_limits_file.close()
-#pile_positions_dictionary_file.close()
-#
-
 t_end = time.time()
 time_for_creating_real_life_graph = t_end - t_begin
 
@@ -711,8 +662,7 @@ for subproblem in decomposition:
         estimate_of_duration_cost_in_heuristic_desirability = estimate_of_distance_cost_in_heuristic_desirability / parameters.forwarder_speed
 
 
-        
-        
+                
         #
         # Estimate the mean ground damage created when traversing an
         # arc in a typical path
@@ -975,8 +925,6 @@ for subproblem in decomposition:
 
                                         pheromone_matrix[current_node, next_node] = (1.0 - parameters.rho) * pheromone_matrix[current_node, next_node] + parameters.rho * this_subproblem_tau_0
 
-                                        # TEST: make it symmetric
-                                        # pheromone_matrix[next_node, current_node] = (1.0 - parameters.rho) * pheromone_matrix[next_node, current_node] + parameters.rho * this_subproblem_tau_0
 
                                         #
                                         # Update forwarder load volume
@@ -998,9 +946,6 @@ for subproblem in decomposition:
                                 #
 
                                 pheromone_matrix[current_node, 0] = (1.0 - parameters.rho) * pheromone_matrix[current_node, next_node] + parameters.rho * this_subproblem_tau_0
-
-                                # TEST: make it symmetric
-                                # pheromone_matrix[0, current_node] = (1.0 - parameters.rho) * pheromone_matrix[0, current_node] + parameters.rho * this_subproblem_tau_0
 
                                 current_node = next_node
 
@@ -1048,8 +993,6 @@ for subproblem in decomposition:
                         next_node = best_solution_so_far.path[i+1]
                         pheromone_matrix[this_node, next_node] = (1.0 - parameters.rho) * pheromone_matrix[this_node, next_node] + parameters.rho / best_solution_so_far.weighted_cost
 
-                        # TEST: make it symmetric
-                        # pheromone_matrix[next_node, this_node] = (1.0 - parameters.rho) * pheromone_matrix[this_node, next_node] + parameters.rho / best_solution_so_far.cost
 
                 #
                 # Keep track of the best solution cost vs. iteration

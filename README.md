@@ -1,3 +1,4 @@
 # smartlog_aco
-Code development for forest machine route optimization.
+SmartLog-ACO is a heuristic, multi-objective approach to solving the forwarder routing problem in cut-to-length forest harvesting operations. See E. Holmström, J. Nikander, J. Backman, K. Väätäinen, J. Uusitalo, and P. Jylhä, "A multi-objective optimization strategy for timber forwarding in cut-to-length harvesting operations" (in preparation) for details.
 
+Contact: eero.holmstrom@luke.fi

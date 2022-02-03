@@ -13,7 +13,9 @@ and path_data.txt is the path to a file containing the forest machine GNSS trace
   
 <altitude (m)> <northing (m)> <easting (m)>
   
-The trafficability data used by the code can be downloaded from the Finnish Forest Centre web pages: https://www.metsakeskus.fi/fi/avoin-metsa-ja-luontotieto/metsatietoaineistot/korjuukelpoisuus.
+The trafficability data used by the code can be downloaded from the Finnish Forest Centre web pages:
+  
+https://www.metsakeskus.fi/fi/avoin-metsa-ja-luontotieto/metsatietoaineistot/korjuukelpoisuus.
 
 Uses the following packages: sys, os, string, math, re, numpy, matplotlib, math, warnings, itertools, copy, random, networkx, scipy, PIL, time.
 

@@ -19,6 +19,6 @@ The trafficability data used by the code can be downloaded from the Finnish Fore
   
 https://www.metsakeskus.fi/fi/avoin-metsa-ja-luontotieto/metsatietoaineistot/korjuukelpoisuus.
 
-Uses the following packages: sys, os, string, math, re, numpy, matplotlib, math, warnings, itertools, copy, random, networkx, scipy, PIL, time.
+Uses the following packages: numpy, copy, random, networkx, matplotlib, scipy, itertools, math, sys, PIL, warnings, os, time.
 
 Contact: eero.holmstrom@luke.fi

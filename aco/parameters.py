@@ -30,8 +30,8 @@ harvestability_map_pixel_size = 16.0
 # Position of the roadside node in easting (m) and northing (m)
 #
 
-x_roadside_position = 
-y_roadside_position = 
+x_roadside_position = 508700
+y_roadside_position = 7270000
 
 
 #

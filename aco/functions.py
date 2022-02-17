@@ -708,7 +708,8 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                 networkx.draw(this_fragment_graph, node_color = 'blue', alpha = 0.5, node_size = parameters.node_size_in_before_and_after_joining_plots, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
                                 plt.axis(graph_axis_limits)
-
+                                plt.gca().set_aspect('equal', adjustable = 'box')
+                                
                                 if parameters.save_figures_to_files and parameters.save_joining_and_merging_figures_to_files:
 
                                         plt.savefig('joining_operation_' + str(n_joining_operations) + '_before.png')
@@ -732,6 +733,7 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                                 networkx.draw(this_joint_subgraph, node_color = 'green', alpha = 0.5, node_size = parameters.node_size_in_before_and_after_joining_plots, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
                                 
                                 plt.axis(graph_axis_limits)
+                                plt.gca().set_aspect('equal', adjustable = 'box')
                                 
                                 if parameters.save_figures_to_files and parameters.save_joining_and_merging_figures_to_files:
 

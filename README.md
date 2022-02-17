@@ -11,7 +11,7 @@ where pile_data.txt is the path to an ASCII file containing the data on log pile
 
 <northing (m)> <easting (m)> <assortment (an integer value)> <total volume of the pile (m**3)> <number of logs in the pile> <maximum distance between two logs in the pile (m)>
   
-and path_data.txt is the path to an ASCII file containing the forest machine GNSS trace, used in constructing the network of trails and pile. This file should have the following format:
+and path_data.txt is the path to an ASCII file containing the forest machine GNSS trace, used in constructing the network of trails and piles. This file should have the following format:
   
 <altitude (m)> <northing (m)> <easting (m)>
   

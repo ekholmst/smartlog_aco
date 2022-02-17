@@ -2423,7 +2423,7 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
                                 
         #
         # 3. Now that you've added the nodes and edges to the graph,
-        # compute the edge lengths, i.e., the eucledian length of each
+        # compute the edge lengths, i.e., the Euclidean length of each
         # edge.
         #
 

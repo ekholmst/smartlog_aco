@@ -51,21 +51,6 @@ class smart_log_roadside_node:
 
 
 #
-# A class describing an edge in the graph.
-#
-
-class smart_log_edge: 
-        
-        def __init__(self, length, pheromone_concentration):
-
-                # The (generalized) length of the edge
-                self.length = length
-
-                # The pheronome concentration along this edge
-                self.pheromone_concentration = pheromone_concentration
-
-
-#
 # A class describing a solution, which consists of a path through the nodes and
 # the corresponding loadings or unloadings of wood.
 #

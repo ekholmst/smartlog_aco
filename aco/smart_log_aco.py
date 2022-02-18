@@ -4,10 +4,14 @@
 #
 # smart_log_aco.py
 #
-# Solve the capacitated vehicle routing problem of forest forwarder
-# work using ant colony optimization.
+# Heuristically solves a multi-objective vehicle routing problem for
+# optimizing forest forwarder work in a cut-to-length harvesting
+# operation.
 #
-# Eero Holmström, 2019-2020
+# Copyright 2022 Natural Resources Institute Finland
+#
+# This program is distributed under the terms of the GNU Lesser
+# General Public License version 3.0 or any later version.
 #
 
 

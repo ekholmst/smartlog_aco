@@ -3,9 +3,12 @@
 #
 # smart_log_classes_aco.py
 #
-# User-defined classes to use in smart_log_aco.py
+# User-defined classes for smart_log_aco.py.
 #
-# Eero Holmström, 2019
+# Copyright 2022 Natural Resources Institute Finland
+#
+# This program is distributed under the terms of the GNU Lesser
+# General Public License version 3.0 or any later version.
 #
 
 

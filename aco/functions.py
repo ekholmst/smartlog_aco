@@ -432,8 +432,8 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         # road strips are easier to make out in the plot
         #
 
-        random.shuffle(road_strip_colors)
-        
+        np.random.shuffle(road_strip_colors)
+
         i_road_strip = 0
 
         for this_road_strip_graph in list_of_road_strip_graphs:
@@ -1158,14 +1158,14 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         #
         
         subgraph_colors = cm.rainbow(np.linspace(0, 1, number_of_subgraphs))
-        
+
         #
         # Shuffle the list of subgraph colors, so that the different
         # subgraphs are easier to make out in the plot
         #
 
-        random.shuffle(subgraph_colors)
-
+        np.random.shuffle(subgraph_colors)
+        
         #
         # Then, draw the subgraphs
         #

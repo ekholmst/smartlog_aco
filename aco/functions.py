@@ -248,7 +248,7 @@ def get_harvestability_map(the_graph, pile_node_sizes, pile_positions, graph_axi
         # the road connectivity
         #                
 
-        networkx.draw(the_graph, node_color = 'white', node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = 'white', node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
 
         #
@@ -407,7 +407,7 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         # the road connectivity
         #                
 
-        networkx.draw(the_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
 
         #
@@ -549,12 +549,12 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         # the road connectivity
         #                
 
-        networkx.draw(the_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)        
+        networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)        
 
         #
         # Then, plot the nodes in the fragments
         #
-                
+        
         networkx.draw(graph_of_all_fragments, node_color = 'grey', node_size = parameters.fragment_graph_node_size, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'd', pos = positions, edgelist = [], with_labels = parameters.draw_graph_nodes_with_labels)
 
 
@@ -1151,7 +1151,7 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         # the road connectivity
         #                
         
-        networkx.draw(the_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
         
         #
         # Create a color space for the edges
@@ -1227,7 +1227,7 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
                 # the road connectivity
                 #                
         
-                networkx.draw(the_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+                networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
                 
                 this_subgraph_nodes = list(this_subgraph.nodes)
@@ -1277,7 +1277,7 @@ def decompose_graph(the_original_graph, original_pile_node_colors, original_pile
         # Draw the full graph into the background first, along with the road connectivity
         #                
         
-        networkx.draw(the_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
         #
         # Then, draw the subgraphs
@@ -2892,7 +2892,7 @@ def construct_real_life_graph_from_input_files(input_file_wood_piles, input_file
         
         warnings.simplefilter('ignore')
 
-        networkx.draw(the_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_graph, nodelist = sorted(list(the_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = positions, with_labels = parameters.draw_graph_nodes_with_labels)
 
         #
         # Enable warnings again
@@ -3118,7 +3118,7 @@ def plot_decomposition(the_real_life_graph, pile_node_colors, pile_node_sizes, p
         # Plot the nodes of the full real-life graph
         #
 
-        networkx.draw(the_real_life_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_real_life_graph, nodelist = sorted(list(the_real_life_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
 
         #
@@ -3181,7 +3181,7 @@ def plot_decomposition(the_real_life_graph, pile_node_colors, pile_node_sizes, p
                 # First, plot the nodes of the full real-life graph
                 #
 
-                networkx.draw(the_real_life_graph, node_color = [c for c in 'k'*len(list(the_real_life_graph.nodes))], node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+                networkx.draw(the_real_life_graph, nodelist = sorted(list(the_real_life_graph.nodes())), node_color = [c for c in 'k'*len(list(the_real_life_graph.nodes))], node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
 
                 #
@@ -3296,7 +3296,7 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
                                         pile_node_colors_for_this_subproblem[node] = [0.0, 0.0, 0.0]
                         
 
-                        networkx.draw(the_real_life_graph, node_color = pile_node_colors_for_this_subproblem, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+                        networkx.draw(the_real_life_graph, nodelist = sorted(list(the_real_life_graph.nodes())), node_color = pile_node_colors_for_this_subproblem, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
                         #
                         # Then draw the path for this tour, setting the color of each edge to the color of the destination node of that edge
@@ -3347,7 +3347,7 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
         # Draw just the nodes first
         #                
 
-        networkx.draw(the_real_life_graph, node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
+        networkx.draw(the_real_life_graph, nodelist = sorted(list(the_real_life_graph.nodes())), node_color = pile_node_colors, node_size = pile_node_sizes, font_color = 'k', font_size = parameters.graph_node_font_size, node_shape = 'o', pos = pile_positions_dictionary, edge_color = 'lightgrey', with_labels = parameters.draw_graph_nodes_with_labels)
 
         #
         # Then draw the edges, setting the color of each edge to the color of the destination node of that edge

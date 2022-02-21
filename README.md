@@ -4,7 +4,7 @@ SmartLog-ACO is a heuristic, multi-objective approach to solving the forwarder r
 Use the following command to run the code:
 
 ```
-smart_log_aco.py pile_data.txt path_data.txt
+python3 smart_log_aco.py pile_data.txt path_data.txt
 ```
 
 where pile_data.txt is the path to an ASCII file containing the data on log piles in the following format:

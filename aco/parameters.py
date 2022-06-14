@@ -5,7 +5,8 @@
 #
 # Parameters for smart_log_aco.py.
 #
-# Copyright 2022 Natural Resources Institute Finland
+# Copyright 2022 Natural Resources Institute Finland and Eero
+# Holmström (eero.holmstrom@luke.fi)
 #
 # This program is distributed under the terms of the GNU Lesser
 # General Public License version 3.0 or any later version.

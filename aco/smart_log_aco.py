@@ -52,7 +52,8 @@ import time
 # This is required for CSC batch jobs
 #
 
-matplotlib.use("agg")
+#matplotlib.use("agg")
+
 
 
 #

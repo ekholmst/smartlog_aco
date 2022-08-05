@@ -37,8 +37,7 @@ import warnings
 # This is required for CSC batch jobs
 #
 
-matplotlib.use("agg")
-
+#matplotlib.use("agg")
 
 
 
@@ -3251,7 +3250,7 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
         # Plot each tour separately, if desired
         #
         
-        if parameters.plot_each_tour_separately == True:
+        if parameters.plot_each_tour_separately:
 
                 for i_tour in range(1, the_solution.path.count(0)):
 

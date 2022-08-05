@@ -3314,7 +3314,7 @@ def plot_best_solution(the_real_life_graph, the_solution, i_subproblem, pile_nod
                                 edge_colors.append(pile_node_colors[next_node])
                 
 
-                        networkx.draw_networkx_edges(diGraphForPath, pos = pile_positions_dictionary, edgelist = this_tour_edges, edge_color = edge_colors, arrowsize = parameters.arrow_size, width = parameters.path_width, style = 'dashed')
+                        networkx.draw_networkx_edges(diGraphForPath, pos = pile_positions_dictionary, edgelist = this_tour_edges, edge_color = edge_colors, arrowsize = parameters.arrow_size, width = parameters.path_width)
 
 
                         plt.legend(handles = pile_color_legend_handles, loc = 'lower left')
